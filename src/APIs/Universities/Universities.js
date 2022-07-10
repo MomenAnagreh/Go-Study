@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Universities.css";
 
-export default function Universities() {
+const Universities = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await axios.get(
-        "http://universities.hipolabs.com/search?country=United+States"
+        "http://universities.hipolabs.com/search?country=Jordan"
       );
 
       console.log(data);
@@ -24,7 +24,7 @@ export default function Universities() {
       <div className="mainContainer">
         {data?.map((uni) => {
           return (
-            <div key={uni.name + uni.web_pages[0]} className="cardContainer">
+            <div key={uni.name + data.indexOf(uni)} className="cardContainer">
               <div className="imageContainer">
                 <img
                   src={require("/Users/momenanagreh/Desktop/go-study/src/Images/JUST-University.jpeg")}
@@ -53,7 +53,7 @@ export default function Universities() {
                   {uni?.web_pages?.map((url) => {
                     return (
                       <div
-                        key={url}
+                        key={uni.name + url}
                         style={{
                           display: "flex",
                           fontSize: "18px",
@@ -76,4 +76,6 @@ export default function Universities() {
       </div>
     </div>
   );
-}
+};
+
+export default Universities;
