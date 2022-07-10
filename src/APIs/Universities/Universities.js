@@ -11,8 +11,6 @@ const Universities = () => {
         "http://universities.hipolabs.com/search?country=Jordan"
       );
 
-      console.log(data);
-
       setData(data.data);
     };
 
