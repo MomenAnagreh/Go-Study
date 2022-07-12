@@ -27,7 +27,7 @@ const Universities = () => {
             <div key={uni.name + data.indexOf(uni)} className="cardContainer">
               <div className="imageContainer">
                 <img
-                  src={require("/Users/momenanagreh/Desktop/go-study/src/Images/JUST-University.jpeg")}
+                  src={require("/Users/momenanagreh/Desktop/go-study/src/Images/Uni.jpg")}
                   alt="Uni"
                   width="250px"
                   height="350px"
