@@ -7,15 +7,17 @@ const Universities = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await axios.get(
+      const response = await axios.get(
         "http://universities.hipolabs.com/search?country=Jordan"
       );
 
-      setData(data.data);
+      setData(response.data);
     };
 
     fetchData().catch(console.error);
   }, []);
+
+  console.log(data);
 
   return (
     <div>
