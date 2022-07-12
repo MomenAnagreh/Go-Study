@@ -3,6 +3,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import HomePage from "./Components/HomePage/HomePage";
 import TopMenu from "./Components/TopMenu/TopMenu";
 import Search from "./Components/Search/Search";
+import Universities from "./APIs/Universities/Universities";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         display: "flex",
         flexDirection: "column",
         backgroundColor: "whitesmoke",
+        height: "auto",
       }}
     >
       <BrowserRouter>
@@ -18,6 +20,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<Universities />} />
           <Route path="/search" element={<Search />} />
         </Routes>
       </BrowserRouter>

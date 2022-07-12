@@ -11,6 +11,7 @@ export default function TopMenu() {
   const [color1, setColor1] = useState(false);
   const [color2, setColor2] = useState(false);
   const [color3, setColor3] = useState(false);
+  const [goColor, setGoColor] = useState();
 
   const lining = (color, line) => {
     return (
@@ -41,9 +42,11 @@ export default function TopMenu() {
           setColor2(false);
           setColor3(false);
         }}
+        onMouseEnter={() => setGoColor("GrayText")}
+        onMouseLeave={() => setGoColor("white")}
       >
         <div className="LogoContainer">
-          <div style={{ color: "white" }}>GS</div>
+          <div style={{ color: goColor }}>GS</div>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ color: "GrayText" }}>Go</div>
@@ -58,6 +61,25 @@ export default function TopMenu() {
           width: "1000px",
         }}
       >
+        <Link
+          to="/home"
+          className="ButtonContainer"
+          onMouseEnter={() => setLine3(true)}
+          onMouseLeave={() => setLine3(false)}
+          style={{
+            flexDirection: "column",
+            height: "70px",
+            justifyContent: "space-between",
+          }}
+          onClick={() => {
+            setColor3(true);
+            turnOff(setColor, setColor2, setColor1);
+          }}
+        >
+          <div />
+          <div style={{ color: "GrayText", fontWeight: "inherit" }}>Home</div>
+          <div>{lining(color3, line3)}</div>
+        </Link>
         <Link
           to="/search"
           className="ButtonContainer"
@@ -118,27 +140,6 @@ export default function TopMenu() {
             Button2
           </div>
           <div>{lining(color2, line2)}</div>
-        </Link>
-        <Link
-          to="/button3"
-          className="ButtonContainer"
-          onMouseEnter={() => setLine3(true)}
-          onMouseLeave={() => setLine3(false)}
-          style={{
-            flexDirection: "column",
-            height: "70px",
-            justifyContent: "space-between",
-          }}
-          onClick={() => {
-            setColor3(true);
-            turnOff(setColor, setColor2, setColor1);
-          }}
-        >
-          <div />
-          <div style={{ color: "GrayText", fontWeight: "inherit" }}>
-            Button3
-          </div>
-          <div>{lining(color3, line3)}</div>
         </Link>
       </div>
 
